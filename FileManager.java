@@ -24,14 +24,17 @@ public class FileManager {
      * @param file       файлът, в който да се запише
      * @param university обектът за записване
      */
-    public void saveUniversityToFile(File file, University university) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-            oos.writeObject(university);
-            System.out.println("Данните са запазени успешно във файл: " + file.getName());
-        } catch (IOException e) {
-            System.err.println("Грешка при запис на данните: " + e.getMessage());
-        }
+    public boolean saveUniversityToFile(File file, University university) {
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+        oos.writeObject(university);
+        System.out.println("Данните са запазени успешно във файл: " + file.getName());
+        return true;
+    } catch (IOException e) {
+        System.err.println("Грешка при запис на данните: " + e.getMessage());
+        return false;
     }
+}
+
 
     /**
      * Зарежда University от файл по подразбиране.

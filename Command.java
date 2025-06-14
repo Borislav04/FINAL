@@ -1,3 +1,3 @@
 public interface Command {
-    void execute(String[] args, FileSession session);
+    void execute(ApplicationContext context, String[] args);
 }

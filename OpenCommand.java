@@ -1,35 +1,24 @@
 import java.io.File;
 
-/**
- * Команда за отваряне на файл и зареждане на обекта University от него.
- */
 public class OpenCommand implements Command {
-
-    private final FileManager fileManager;
-
-    public OpenCommand(FileManager fileManager) {
-        this.fileManager = fileManager;
-    }
+    private FileManager fileManager = new FileManager();
 
     @Override
-    public void execute(String[] args, FileSession session) {
+    public void execute(ApplicationContext context, String[] args) {
         if (args.length < 2) {
-            System.out.println("Използване: open <път до файл>");
+            System.out.println("Употреба: open <път до файл>");
             return;
         }
 
-        String path = args[1];
-        File file = new File(path);
-
+        File file = new File(args[1]);
         University university = fileManager.loadUniversityFromFile(file);
-
         if (university != null) {
-            session.setUniversity(university);
-            session.setCurrentFile(file);
-            session.setModified(false);
-            System.out.println("Успешно отворен: " + file.getName());
+            context.setUniversity(university);
+            context.setCurrentFile(file);
+            context.setFileOpen(true);
+            System.out.println("Успешно отворен файл: " + file.getName());
         } else {
-            System.out.println("Неуспешно зареждане на файл: " + file.getName());
+            System.out.println("Грешка при отваряне на файла.");
         }
     }
 }

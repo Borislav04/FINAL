@@ -18,5 +18,6 @@ public class SaveAsCommand implements Command {
         File newFile = new File(args[1]);
         fileManager.saveUniversityToFile(newFile, context.getUniversity());
         context.setCurrentFile(newFile);
+        context.setModified(true);
     }
 }

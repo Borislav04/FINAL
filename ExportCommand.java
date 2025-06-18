@@ -16,5 +16,6 @@ public class ExportCommand implements Command {
 
         String filename = (args.length > 1) ? args[1] : "students_report.txt";
         fileManager.exportToTextFile(filename, context.getUniversity());
+        context.setModified(true);
     }
 }

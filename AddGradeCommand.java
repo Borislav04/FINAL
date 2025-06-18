@@ -21,6 +21,7 @@ public class AddGradeCommand implements Command {
             double grade = Double.parseDouble(args[3]);
 
             context.getUniversity().addGrade(fn, disciplineName, grade);
+            context.setModified(true);
         } catch (NumberFormatException e) {
             System.out.println("Невалидни данни. Проверете факултетния номер и оценката.");
         }

@@ -18,6 +18,7 @@ public class ResumeCommand implements Command {
         try {
             int fn = Integer.parseInt(args[1]);
             context.getUniversity().resumeStudent(fn);
+            context.setModified(true);
         } catch (NumberFormatException e) {
             System.out.println("Невалиден факултетен номер.");
         }

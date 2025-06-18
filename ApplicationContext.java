@@ -5,6 +5,16 @@ public class ApplicationContext {
     private File currentFile;
     private boolean isFileOpen;
     private String currentFilePath;
+    private boolean isModified;
+
+    public boolean isModified() {
+    return isModified;
+    }
+
+    public void setModified(boolean modified) {
+    isModified = modified;
+    }
+
 
     public University getUniversity() {
         return university;
@@ -44,6 +54,8 @@ public class ApplicationContext {
     this.currentFile = null;
     this.currentFilePath = null;
     this.isFileOpen = false;
+    this.isModified = false;
     }
+
 
 }

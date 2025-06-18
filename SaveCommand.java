@@ -9,5 +9,6 @@ public class SaveCommand implements Command {
         }
 
         fileManager.saveUniversityToFile(context.getCurrentFile(), context.getUniversity());
+        context.setModified(true);
     }
 }

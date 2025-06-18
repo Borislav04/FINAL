@@ -19,6 +19,7 @@ public class EnrollInCommand implements Command {
             int fn = Integer.parseInt(args[1]);
             String disciplineName = args[2];
             context.getUniversity().enrollInDiscipline(fn, disciplineName);
+            context.setModified(true);
         } catch (NumberFormatException e) {
             System.out.println("Невалиден факултетен номер.");
         }

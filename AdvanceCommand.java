@@ -18,6 +18,7 @@ public class AdvanceCommand implements Command {
         try {
             int fn = Integer.parseInt(args[1]);
             context.getUniversity().advanceStudent(fn);
+            context.setModified(true);
         } catch (NumberFormatException e) {
             System.out.println("Невалиден формат за факултетен номер.");
         }

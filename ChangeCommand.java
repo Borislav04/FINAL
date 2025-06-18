@@ -22,11 +22,14 @@ public class ChangeCommand implements Command {
 
             switch (option.toLowerCase()) {
                 case "program" -> context.getUniversity().changeStudentProgram(fn, value);
+                                  context.setModified(true);
                 case "group" ->
                         context.getUniversity().findStudentByFacultyNumber(fn).ifPresent(s -> s.setGroup(value));
+                        context.setModified(true);
                 case "year" -> {
                     int year = Integer.parseInt(value);
                     context.getUniversity().findStudentByFacultyNumber(fn).ifPresent(s -> s.setYear(year));
+                    context.setModified(true);
                 }
                 default -> System.out.println("Невалидна опция. Използвайте 'program', 'group' или 'year'.");
             }

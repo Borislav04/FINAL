@@ -24,6 +24,7 @@ public class EnrollCommand implements Command {
             String group = args[4];
 
             context.getUniversity().enrollStudent(name, fn, program, group);
+            context.setModified(true);
         } catch (NumberFormatException e) {
             System.out.println("Невалиден формат за факултетен номер.");
         }
